@@ -72,13 +72,15 @@ Following the [Flexget configuration guide](https://flexget.com/Configuration) w
 
 #### Test
 
-By typing `root@container flexget` and pressing the tab button a couple of times in your bash shell, you can see the things that flexget can do. One of the import commands for troubleshooting is `root@container flexget database reset --sure` is useful if you are making changes to a config file and want to try to download media that you have already downloaded. Another is `root@container flexget check` which initiall checks your config file and setup to make sure that you don't have any syntax errors.
+By typing `root@container flexget` and pressing the tab button a couple of times in your bash shell, you can see the things that flexget can do. One of the import commands for troubleshooting is `root@container flexget database reset --sure` is useful if you are making changes to a config file and want to try to download media that you have already downloaded. Of coure you have to delete the files and clear them from transmission, but thats another step.  
+
+Another is `root@container flexget check` which initiall checks your config file and setup to make sure that you don't have any syntax errors.
 
 #### Clear db if problem
 #### Set up systemd to run command as timer
 
-lxc-start -n containername
-lxc-stop -n containername
+`# lxc-start -n [containername]`
+`# lxc-stop -n [containername]`
 
 ### Running Transmission as Root
  http://askubuntu.com/questions/261252/how-do-i-change-the-user-transmission-runs-under
