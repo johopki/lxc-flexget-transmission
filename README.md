@@ -24,7 +24,7 @@ Kind=bridge
 ~~~~~
 `# systemctl restart systemd-networkd.service`
 
-`# /etc/systemd/network/MyEth.network`
+`# nano /etc/systemd/network/MyEth.network`
 ~~~~~
 [Match]
 Name=en*
@@ -34,7 +34,7 @@ Bridge=br0
 ~~~
 
 ### Enable networking and share a host folder to the container config file 
-/var/lib/lxc/u1/config
+`# nano /var/lib/lxc/u1/config`
 ~~~~
 lxc.network.type = veth
 lxc.network.link = br0
