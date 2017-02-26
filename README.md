@@ -8,7 +8,7 @@ Be kind. This is my first Github project and tutorial and don't harass me for us
 
 For these purposes, I will be logging in to my host as root
 
-###Install LXC
+### Install LXC
 Using pacman, install the lxc package  
 `# pacman -S lxc debootstrap`
 
@@ -50,8 +50,9 @@ lxc.start.auto = 1
 https://wiki.archlinux.org/index.php/Systemd-networkd#Basic_DHCP_network
 https://wiki.archlinux.org/index.php/Linux_Containers
 
-### Connect to container as root
-`root@container apt-get update`  
+### Connect to container as root and update repository
+Connect to the root container using: `# lxc-attach -n [container name]`.   
+Update Ubuntu repositories using : `root@container: apt-get update`.  
 If this works properly, you are connected to the internet. If you have trouble connecting, you have to troubleshoot your network.
 
 #### Troubleshooting
@@ -59,6 +60,12 @@ Using `# lxc-lx --fancy` on your host will give you an output detailing your con
 
 ### Install and set up Flexget
 #### Install
+Following the [Flexget install instructions](https://flexget.com/InstallWizard/Linux) is very straight forward. For my puropses, I used the following commands:  
+`root@container apt-get update`  
+`root@container apt-get install python3.5 python-pip`  
+`root@container pip install --upgrade setuptools`  
+`root@container pip install flexget`  
+
 #### Configure
 #### Test
 #### Clear db if problem
@@ -67,7 +74,8 @@ Using `# lxc-lx --fancy` on your host will give you an output detailing your con
 
 lxc-start -n containername
  lxc-stop -n containername
- ###Running Transmission as Root
+
+### Running Transmission as Root
  http://askubuntu.com/questions/261252/how-do-i-change-the-user-transmission-runs-under
  
  sudo systemctl stop transmission-daemon
