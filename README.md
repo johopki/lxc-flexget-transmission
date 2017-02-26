@@ -108,7 +108,7 @@ lxc.start.auto = 1
 
 ### Making things happen automagically
 
-#### Set up systemd to run command as timer
+#### Set up systemd to run `flexget execute` as timer
 
 Create a systemd service file and timer file:   
 `# nano /etc/systemd/system/flexget.service`   
