@@ -1,14 +1,13 @@
 ##Flexget and Transmission on Ubuntu 16.04 Container in LXC
------
+
 This tutorial is a work in progress. I will remove this line when it is completed.
 
 I decided to create this tutorial because I was having trouble building [Flexget](www.flexget.com) for [Antergos](www.antergos.com) which is my deskop OS of choice. It was also a good excuse to learn LXC containers which I wanted to do for a while. Be kind. This is my first Github project and tutorial and don't harass me for using nano. Its been good for me for almost ten years now.
------
+
 For these purposes, I will be logging in to my host as root.  
 
 All commands entered on host system will have a `#` before the commands. All commands issued on the contianer will start with `root@container`.  
 
------
 ### Install LXC
 Using pacman, install the lxc package  
 `# pacman -S lxc debootstrap`
