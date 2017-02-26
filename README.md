@@ -1,5 +1,7 @@
 ##Flexget and Transmission on Ubuntu 16.04 Container in LXC
 
+This tutorial is a work in progress. I will remove this line when it is completed.
+
 I decided to create this tutorial because I was having trouble building [Flexget](www.flexget.com) for [Antergos](www.antergos.com) which is my deskop OS of choice.
 
 Be kind. This is my first Github project and tutorial and don't harass me for using nano. Its been good for me for almost ten years now.
@@ -48,14 +50,19 @@ lxc.start.auto = 1
 https://wiki.archlinux.org/index.php/Systemd-networkd#Basic_DHCP_network
 https://wiki.archlinux.org/index.php/Linux_Containers
 
-### E
+### Connect to container as root
+`root@container apt-get update`  
+If this works properly, you are connected to the internet. If you have trouble connecting, you have to troubleshoot your network.
 
-#3# Install and set up Flexget
-  Install
-  Configure
-  Test
-  Clear db if problem
-  Set up systemd to run command as timer
+#### Troubleshooting
+Using `# lxc-lx --fancy` on your host will give you an output detailing your container(s) and if they have an IP address. 
+
+### Install and set up Flexget
+#### Install
+#### Configure
+#### Test
+#### Clear db if problem
+#### Set up systemd to run command as timer
   
 
 lxc-start -n containername
