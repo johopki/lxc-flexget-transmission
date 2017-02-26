@@ -78,8 +78,7 @@ By typing `root@container flexget` and pressing the tab button a couple of times
 Another is `root@container flexget check` which checks your config file and setup to make sure that you don't have any syntax errors.
 
 ### Running Transmission as Root
- http://askubuntu.com/questions/261252/how-do-i-change-the-user-transmission-runs-under
- 
+
 `root@container systemctl stop transmission-daemon`
 `root@container systemctl edit transmission-daemon.service`
 ~~~
@@ -92,17 +91,8 @@ Edit Transmission config file using `root@container nano ~/.config/transmission-
 
 `root@container systemctl enable transmission-daemon`
 
-If you have already configured transmission settings: cp /var/lib/transmission-daemon/.config/transmission-daemon/settings.json ~/.config/transmission-daemon/settings.json 
-
-### Autostart LXC container 
-
-More detailed instuctions are found [here](https://coderwall.com/p/ysog_q/lxc-autostart-container-at-boot-choose-order-and-delay).
-
-/var/lib/lxc/myfirstcontainer/config) :
-
-lxc.start.auto = 1
-#lxc.start.delay = 0 (in seconds)
-#lxc.start.order = 0 (higher means earlier)
+If you have already configured transmission settings:  
+`root@container cp /var/lib/transmission-daemon/.config/transmission-daemon/settings.json ~/.config/transmission-daemon/settings.json` 
 
 ### Making things happen automagically
 
@@ -132,14 +122,14 @@ Unit=flexget.service
 ~~~~   
 Run command `# sudo systemctl enable flexget.timer` to enable the timer at startup of LXC container.
 
-These steps and more detail is available [here](https://jason.the-graham.com/2013/03/06/how-to-use-systemd-timers/). This is one of the most clear and concise writeups I have used.
-
-### Troubleshooting
+### Troubleshooting and useful commands
 
 `# lxc-start -n [containername]`
 `# lxc-stop -n [containername]`
 
 ###Click links for detailed instructions on
-- [Autostarting LXC Containers](https://coderwall.com/p/ysog_q/lxc-autostart-container-at-boot-choose-order-and-delay).
+- [Autostarting LXC Containers](https://coderwall.com/p/ysog_q/lxc-autostart-container-at-boot-choose-order-and-delay)
 - [Networking with LXC containers](https://wiki.archlinux.org/index.php/Systemd-networkd#Basic_DHCP_network)
 - [LXC Containers](https://wiki.archlinux.org/index.php/Linux_Containers)
+- [Systemd Timers](https://jason.the-graham.com/2013/03/06/how-to-use-systemd-timers/)
+- [Running services as different user](http://askubuntu.com/questions/261252/how-do-i-change-the-user-transmission-runs-under)
