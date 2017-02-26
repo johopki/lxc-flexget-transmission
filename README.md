@@ -2,9 +2,7 @@
 ---
 This tutorial is a work in progress. I will remove this line when it is completed.
 
-I decided to create this tutorial because I was having trouble building [Flexget](www.flexget.com) for [Antergos](www.antergos.com) which is my deskop OS of choice. It was also a good excuse to learn LXC containers which I wanted to do for a while.
-
-Be kind. This is my first Github project and tutorial and don't harass me for using nano. Its been good for me for almost ten years now.
+I decided to create this tutorial because I was having trouble building [Flexget](www.flexget.com) for [Antergos](www.antergos.com) which is my deskop OS of choice. It was also a good excuse to learn LXC containers which I wanted to do for a while. Be kind. This is my first Github project and tutorial and don't harass me for using nano. Its been good for me for almost ten years now.
 ---
 For these purposes, I will be logging in to my host as root.  
 
