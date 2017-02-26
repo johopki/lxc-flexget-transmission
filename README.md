@@ -9,7 +9,7 @@ All commands entered on host system will have a `#` before the commands. All com
 
 ### Install LXC
 Using pacman, install the lxc package  
-`# pacman -S lxc debootstrap`
+`# pacman -S lxc debootstrap arch-install-scripts`
 
 ### Create container of Ubuntu 16.04
 `# lxc-create -t download -n u1 -- -d ubuntu -r xenial -a amd64`  
