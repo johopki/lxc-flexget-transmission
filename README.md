@@ -76,9 +76,6 @@ By typing `root@container flexget` and pressing the tab button a couple of times
 
 Another is `root@container flexget check` which initiall checks your config file and setup to make sure that you don't have any syntax errors.
 
-#### Clear db if problem
-#### Set up systemd to run command as timer
-
 `# lxc-start -n [containername]`
 `# lxc-stop -n [containername]`
 
@@ -109,19 +106,23 @@ lxc.start.auto = 1
 #lxc.start.delay = 0 (in seconds)
 #lxc.start.order = 0 (higher means earlier)
 
-Create a Systemd service file and timer file in /etc/systemd/system/
+### Making things happen automagically
 
-flexget.service
-####################
+#### Set up systemd to run command as timer
+
+Create a systemd service file and timer file:   
+`# nano /etc/systemd/system/flexget.service`  
+whose contents are:  
+~~~~
 [Unit]
 Description=Flexget
 
 [Service]
 Type=simple
 ExecStart=/usr/bin/flexget execute
-------
-flexget.timer
-####################
+~~~~   
+`# nano /etc/systemd/system/flexget.timer`   
+~~~~
 [Unit]
 Description=Runs myscript every hour
 
@@ -131,8 +132,8 @@ OnBootSec=10min
 # Every hour (*) and denomination in minutes
 OnCalendar=*:0
 Unit=flexget.service
-----------------------
-sudo systemctl enable flexget.timer
+~~~~   
+Run command `# sudo systemctl enable flexget.timer`
 
-https://jason.the-graham.com/2013/03/06/how-to-use-systemd-timers/
+These steps and more detail is available [here](https://jason.the-graham.com/2013/03/06/how-to-use-systemd-timers/). This is one of the most clear and concise writeups I have used.
 
