@@ -6,7 +6,9 @@ I decided to create this tutorial because I was having trouble building [Flexget
 
 Be kind. This is my first Github project and tutorial and don't harass me for using nano. Its been good for me for almost ten years now.
 
-For these purposes, I will be logging in to my host as root
+For these purposes, I will be logging in to my host as root.  
+
+All commands entered on host system will have a `#` before the commands. All commands issued on the contianer will start with `root@container`.  
 
 ### Install LXC
 Using pacman, install the lxc package  
@@ -45,10 +47,9 @@ lxc.network.name = eth0
 
 lxc.mount.entry = /[path on host]/[directory you]/[want to share]  /var/lib/lxc/[container name]/rootfs/[folder name] none bind 0 0
 lxc.start.auto = 1
+#lxc.start.delay = 0 (in seconds)
+#lxc.start.order = 0 (higher means earlier)
 ~~~~
-
-https://wiki.archlinux.org/index.php/Systemd-networkd#Basic_DHCP_network
-https://wiki.archlinux.org/index.php/Linux_Containers
 
 ### Connect to container as root and update repository
 Connect to the root container using: `# lxc-attach -n [container name]`.   
@@ -68,37 +69,34 @@ Following the [Flexget install instructions](https://flexget.com/InstallWizard/L
 
 #### Configure
 
-Following the [Flexget configuration guide](https://flexget.com/Configuration) was pretty easy, but in the end I opted to use the [Transmission plugin](https://flexget.com/Plugins/transmission) and a prewritten config file. I altered it very little.
+Following the [Flexget configuration instructions](https://flexget.com/Configuration) was pretty easy, but in the end I opted to use the [Transmission plugin](https://flexget.com/Plugins/transmission) and a prewritten config file. I altered it very little.
 
 #### Test
 
 By typing `root@container flexget` and pressing the tab button a couple of times in your bash shell, you can see the things that flexget can do. One of the import commands for troubleshooting is `root@container flexget database reset --sure` is useful if you are making changes to a config file and want to try to download media that you have already downloaded. Of coure you have to delete the files and clear them from transmission, but thats another step.  
 
-Another is `root@container flexget check` which initiall checks your config file and setup to make sure that you don't have any syntax errors.
-
-`# lxc-start -n [containername]`
-`# lxc-stop -n [containername]`
+Another is `root@container flexget check` which checks your config file and setup to make sure that you don't have any syntax errors.
 
 ### Running Transmission as Root
  http://askubuntu.com/questions/261252/how-do-i-change-the-user-transmission-runs-under
  
-sudo systemctl stop transmission-daemon
-systemctl edit transmission-daemon.service
-
+`root@container systemctl stop transmission-daemon`
+`root@container systemctl edit transmission-daemon.service`
+~~~
 [Service]
-User=codon
+User=root
+~~~~
+`root@container systemctl daemon-reload`
 
-sudo systemctl daemon-reload
+Edit Transmission config file using `root@container nano ~/.config/transmission-daemon/settings.json`
 
-edit: ~/.config/transmission-daemon/settings.json
-
-sudo systemctl start transmission-daemon
+`root@container systemctl enable transmission-daemon`
 
 If you have already configured transmission settings: cp /var/lib/transmission-daemon/.config/transmission-daemon/settings.json ~/.config/transmission-daemon/settings.json 
 
-### autostart lxc 
+### Autostart LXC container 
 
-https://coderwall.com/p/ysog_q/lxc-autostart-container-at-boot-choose-order-and-delay
+More detailed instuctions are found [here](https://coderwall.com/p/ysog_q/lxc-autostart-container-at-boot-choose-order-and-delay).
 
 /var/lib/lxc/myfirstcontainer/config) :
 
@@ -132,7 +130,16 @@ OnBootSec=10min
 OnCalendar=*:0
 Unit=flexget.service
 ~~~~   
-Run command `# sudo systemctl enable flexget.timer`
+Run command `# sudo systemctl enable flexget.timer` to enable the timer at startup of LXC container.
 
 These steps and more detail is available [here](https://jason.the-graham.com/2013/03/06/how-to-use-systemd-timers/). This is one of the most clear and concise writeups I have used.
 
+### Troubleshooting
+
+`# lxc-start -n [containername]`
+`# lxc-stop -n [containername]`
+
+###Click links for detailed instructions on
+- [Autostarting LXC Containers](https://coderwall.com/p/ysog_q/lxc-autostart-container-at-boot-choose-order-and-delay).
+- [Networking with LXC containers](https://wiki.archlinux.org/index.php/Systemd-networkd#Basic_DHCP_network)
+- [LXC Containers](https://wiki.archlinux.org/index.php/Linux_Containers)
