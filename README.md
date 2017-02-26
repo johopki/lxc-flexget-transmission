@@ -1,5 +1,7 @@
 ##Flexget and Transmission on Ubuntu 16.04 Container in LXC
 
+Be kind. This is my first Github project and tutorial and don't harass me for using nano. Its been good for me for almost ten years now.
+
 For these purposes, I will be logging in to my host as root
 
 ###Install LXC
@@ -13,7 +15,7 @@ Where "u1" is the name of your container
 ### Create a network bridge on host
 
 `# nano /etc/systemd/network/MyBridge.netdev`  
-```
+~~~~
 [NetDev]
 Name=br0
 Kind=bridge
