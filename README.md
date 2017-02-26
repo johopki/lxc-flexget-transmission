@@ -43,7 +43,7 @@ lxc.network.link = br0
 lxc.network.flags = up
 lxc.network.name = eth0
 
-lxc.mount.entry = /[path on host]  /var/lib/lxc/u1/rootfs/[folder name] none bind 0 0
+lxc.mount.entry = /[path on host]/[directory you]/[want to share]  /var/lib/lxc/[container name]/rootfs/[folder name] none bind 0 0
 lxc.start.auto = 1
 ~~~~
 
@@ -67,18 +67,23 @@ Following the [Flexget install instructions](https://flexget.com/InstallWizard/L
 `root@container pip install flexget`  
 
 #### Configure
+
+Following the [Flexget configuration guide](https://flexget.com/Configuration) was pretty easy, but in the end I opted to use the [Transmission plugin](https://flexget.com/Plugins/transmission) and a prewritten config file. I altered it very little.
+
 #### Test
+
+By typing `root@container flexget` and pressing the tab button a couple of times in your bash shell, you can see the things that flexget can do. One of the import commands for troubleshooting is `root@container flexget database reset --sure` is useful if you are making changes to a config file and want to try to download media that you have already downloaded. Another is `root@container flexget check` which initiall checks your config file and setup to make sure that you don't have any syntax errors.
+
 #### Clear db if problem
 #### Set up systemd to run command as timer
-  
 
 lxc-start -n containername
- lxc-stop -n containername
+lxc-stop -n containername
 
 ### Running Transmission as Root
  http://askubuntu.com/questions/261252/how-do-i-change-the-user-transmission-runs-under
  
- sudo systemctl stop transmission-daemon
+sudo systemctl stop transmission-daemon
 systemctl edit transmission-daemon.service
 
 [Service]
