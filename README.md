@@ -127,7 +127,7 @@ Run command `# sudo systemctl enable flexget.timer` to enable the timer at start
 `# lxc-start -n [containername]`
 `# lxc-stop -n [containername]`
 
-###Click links for detailed instructions on
+###Links for more detailed instructions which I used in this tutorial
 - [Autostarting LXC Containers](https://coderwall.com/p/ysog_q/lxc-autostart-container-at-boot-choose-order-and-delay)
 - [Networking with LXC containers](https://wiki.archlinux.org/index.php/Systemd-networkd#Basic_DHCP_network)
 - [LXC Containers](https://wiki.archlinux.org/index.php/Linux_Containers)
