@@ -1,0 +1,6 @@
+[Unit]
+Description=Flexget
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/flexget execute
