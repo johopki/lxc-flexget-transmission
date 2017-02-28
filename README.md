@@ -113,8 +113,8 @@ Description=Runs myscript every hour
 [Timer]
 # Time to wait after booting before we run first time
 OnBootSec=10min
-# Every hour (*) and denomination in minutes
-OnCalendar=*:0
+# Every hour (*) and denomination in minutes (:00)
+OnCalendar=*:00
 Unit=flexget.service
 ~~~~   
 Run command `# sudo systemctl enable flexget.timer` to enable the timer at startup of LXC container.
