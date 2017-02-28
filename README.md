@@ -123,7 +123,7 @@ Run command `# sudo systemctl enable flexget.timer` to enable the timer at start
 
 - `# lxc-start -n [containername]`
 - `# lxc-stop -n [containername]`
-- `# lxc-lx --fancy`
+- `# lxc-ls --fancy`
 
 ###Links for more detailed instructions which I used in this tutorial
 - [Autostarting LXC Containers](https://coderwall.com/p/ysog_q/lxc-autostart-container-at-boot-choose-order-and-delay)
