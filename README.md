@@ -54,7 +54,7 @@ Update Ubuntu repositories using : `root@container: apt-get update`.
 If this works properly, you are connected to the internet. If you have trouble connecting, you have to troubleshoot your network.
 
 #### Troubleshooting
-Using `# lxc-lx --fancy` on your host will give you an output detailing your container(s) and if they have an IP address. 
+Using `# lxc-ls --fancy` on your host will give you an output detailing your container(s) and if they have an IP address. 
 
 ### Install and set up Flexget
 #### Install
