@@ -1,0 +1,13 @@
+[Unit]
+Description=Runs myscript every hour
+
+[Timer]
+# Time to wait after booting before we run first time
+OnBootSec=10min
+# Time between running each consecutive time
+OnCalendar=*:0
+#OnUnitActiveSec=1h
+Unit=flexget.service
+
+[Install]
+WantedBy=multi-user.target
