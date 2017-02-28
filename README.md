@@ -76,7 +76,7 @@ Another is `root@container flexget check` which checks your config file and setu
 
 ### Running Transmission as Root
 
-`root@container systemctl stop transmission-daemon`
+`root@container systemctl stop transmission-daemon`    
 `root@container systemctl edit transmission-daemon.service`
 ~~~
 [Service]
