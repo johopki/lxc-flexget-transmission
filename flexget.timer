@@ -1,3 +1,4 @@
+#/etc/systemd/system/flexget.timer
 [Unit]
 Description=Runs myscript every hour
 
