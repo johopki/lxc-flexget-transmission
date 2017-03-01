@@ -117,7 +117,7 @@ OnBootSec=10min
 OnCalendar=*:00
 Unit=flexget.service
 ~~~~   
-Run command `# sudo systemctl enable flexget.timer` to enable the timer at startup of LXC container.
+Run command `# sudo systemctl enable flexget.timer` to enable the timer at startup of LXC container and `# sudo systemctl start flexget.timer` to start immediately.
 
 ### Troubleshooting and useful commands
 
