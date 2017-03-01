@@ -1,7 +1,7 @@
-#/etc/systemd/network/MyEth.network 
+# /etc/systemd/network/MyEth.network 
 
 [Match]
-Name=enp3s0
+Name=en# [name of host LAN/WLAN network to connect bridge]
 
 [Network]
 Bridge=br0
