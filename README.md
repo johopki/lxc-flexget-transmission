@@ -103,7 +103,7 @@ Description=Flexget
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/flexget execute
+ExecStart=/usr/local/bin/flexget execute
 ~~~~   
 `# nano /etc/systemd/system/flexget.timer`   
 ~~~~
