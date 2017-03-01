@@ -1,4 +1,4 @@
-/etc/flexget# cat config.yml 
+# /etc/flexget/config.yml 
 templates:
   tv:
 
@@ -19,41 +19,34 @@ templates:
           propers: 2 days
           quality: HDTV
           set:
-            path: "/PLEX/TV Shows/{{series_name}}"
+            path: "/[path to]/[folder in lxc]/[to save media to]/{{series_name}}"
+            
       tv:
-        - Arrow
-        - The Flash 2014
-        - Blindspot
-        - 24 Legacy
-        - Lethal Weapon
-        - Forged In Fire
-        - Homeland
-        - Supergirl
-        - DCs Legends Of Tomorrow
+        - series_A
+        - series_B
+        - series_C
 
     transmission:
       enabled: yes
       host: localhost
       port: 9091
-      username: tranny
-      password: tranny
-#      removewhendone: yes
+      username: transmission
+      password: [password for transmission-daemon]
 
 tasks:
 
-  ezrss.it:
+  rss.site.name.1:
     priority: 1
-    rss: https://eztv.ag/ezrss.xml
+    rss: [url.for.rss_site]
     template: tv
 
-  thepiratebay.org-tv:
-    priority: 3
-    rss: https://thepiratebay.org/rss
+  rss.site.name.2:
+    priority: 2
+    rss: [url.for.rss_site2]
     template: tv
     verify_ssl_certificates: no
 
-  extratorrent.com-tv:
-    priority: 5
-    rss: http://extratorrent.com/rss.xml?cid=8
+  rss.site.name.3:
+    priority: 3
+    rss: [url.for.rss_site3]
     template: tv
-root@u1:/etc/flexget# 
