@@ -1,4 +1,4 @@
-#~/.config/transmission-daemon# cat settings.json 
+#~/.config/transmission-daemon/settings.json 
 {
     "alt-speed-down": 50,
     "alt-speed-enabled": false,
@@ -50,8 +50,8 @@
     "rpc-password": "{b3707d000465cad51601500815a7f11893d5d534.FvYvVW1",
     "rpc-port": 9091,
     "rpc-url": "/transmission/",
-    "rpc-username": "tranny",
-    "rpc-whitelist": "127.0.0.1,132.143.1.*",
+    "rpc-username": "transmission",
+    "rpc-whitelist": "127.0.0.1,192.168.1.*",
     "rpc-whitelist-enabled": true,
     "scrape-paused-torrents-enabled": true,
     "script-torrent-done-enabled": false,
