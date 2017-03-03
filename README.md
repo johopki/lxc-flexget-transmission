@@ -96,7 +96,7 @@ If you have already configured transmission settings:
 #### Set up systemd to run `flexget execute` as timer
 
 Create a systemd service file and timer file:   
-`# nano /etc/systemd/system/flexget.service`   
+`root@container nano /etc/systemd/system/flexget.service`   
 ~~~~
 [Unit]
 Description=Flexget
@@ -105,7 +105,7 @@ Description=Flexget
 Type=simple
 ExecStart=/bin/bash -c '/usr/local/bin/flexget execute'
 ~~~~   
-`# nano /etc/systemd/system/flexget.timer`   
+`root@container nano /etc/systemd/system/flexget.timer`   
 ~~~~
 [Unit]
 Description=Runs myscript every hour
@@ -117,13 +117,14 @@ OnBootSec=10min
 OnCalendar=*:00
 Unit=flexget.service
 ~~~~   
-Run command `# sudo systemctl enable flexget.timer` to enable the timer at startup of LXC container and `# sudo systemctl start flexget.timer` to start immediately.
+Run command `root@container systemctl enable flexget.timer` to enable the timer at startup of LXC container and `root@container systemctl start flexget.timer` to start immediately.
 
 ### Troubleshooting and useful commands
 
 - `# lxc-start -n [containername]`
 - `# lxc-stop -n [containername]`
 - `# lxc-ls --fancy`
+- `root@container systemctl daemon-reload`
 
 ###Links for more detailed instructions which I used in this tutorial
 - [Autostarting LXC Containers](https://coderwall.com/p/ysog_q/lxc-autostart-container-at-boot-choose-order-and-delay)
