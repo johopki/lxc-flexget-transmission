@@ -41,6 +41,10 @@ lxc.network.type = veth
 lxc.network.link = br0
 lxc.network.flags = up
 lxc.network.name = eth0
+#Uncomment the following lines to set a static IP and a MAC Address
+#lxc.network.ipv4 = 192.168.0.3/24
+#lxc.network.ipv4.gateway = 192.168.0.1
+#lxc.network.hwaddr = ee:ec:fa:e9:56:7d
 
 lxc.mount.entry = /[path on host]/[directory you]/[want to share]  /var/lib/lxc/[container name]/rootfs/[folder name] none bind 0 0
 lxc.start.auto = 1
